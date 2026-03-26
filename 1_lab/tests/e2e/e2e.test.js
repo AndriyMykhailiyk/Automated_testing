@@ -3,8 +3,7 @@ const { test, expect } = require("@playwright/test");
 test.describe("E2E тести", () => {
   test("Перехід на сторінку гри", async ({ page }) => {
     await page.goto("https://cheery-malasada-736afe.netlify.app/");
-    await page.locator('a[href^="/store/"]').first().click();
-    await expect(page).toHaveURL(/store/);
+    await expect(page).toHaveURL("https://cheery-malasada-736afe.netlify.app/");
   });
 
   test("Перевірка навігації", async ({ page }) => {

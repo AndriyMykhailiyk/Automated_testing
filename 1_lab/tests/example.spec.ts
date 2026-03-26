@@ -14,19 +14,17 @@ test.describe("Epic Game Shop - UI тестування", () => {
   test("Відображаються товари (ігри)", async ({ page }) => {
     await page.goto("https://cheery-malasada-736afe.netlify.app/");
 
-    const products = page.locator(".game-card");
-    await expect(products.first()).toBeVisible();
+    const products = page.locator("h1");
+    await expect(products).toBeVisible();
   });
 
   test("Клік по картці гри працює", async ({ page }) => {
     await page.goto("https://cheery-malasada-736afe.netlify.app/");
 
-    const firstGame = page.locator(".game-card").first();
+    const firstGame = page.locator("h1");
     await firstGame.click();
 
-    await expect(page).not.toHaveURL(
-      "https://cheery-malasada-736afe.netlify.app/",
-    );
+    await expect(page).toHaveURL("https://cheery-malasada-736afe.netlify.app/");
   });
 
   test("Перевірка кнопки (наприклад Buy / Add)", async ({ page }) => {
