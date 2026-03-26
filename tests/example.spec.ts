@@ -14,7 +14,7 @@ test.describe("Epic Game Shop - UI тестування", () => {
   test("Відображаються товари (ігри)", async ({ page }) => {
     await page.goto("https://cheery-malasada-736afe.netlify.app/");
 
-    const products = page.locator(".game-card"); // якщо інший клас — скажеш, підправлю
+    const products = page.locator(".game-card");
     await expect(products.first()).toBeVisible();
   });
 
