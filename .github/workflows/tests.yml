@@ -19,14 +19,52 @@ jobs:
         with:
           node-version: 18
 
-      - name: 📦 Встановлення залежностей
-        run: npm install
+      - name: 📦 Встановлення залежностей 1_lab
+        run: |
+          cd 1_lab
+          npm install
 
-      - name: 🎭 Встановлення Playwright
-        run: npx playwright install --with-deps
+      - name: 📦 Встановлення залежностей lab6-e2e
+        run: |
+          cd lab6-e2e
+          npm install
 
-      - name: 🧪 Запуск UI тестів
-        run: npx playwright test
+      - name: 📦 Встановлення залежностей ui-testing
+        run: |
+          cd ui-testing
+          npm install
 
-      - name: 📊 Генерація звіту
-        run: npx playwright show-report
+      - name: 🎭 Встановлення Playwright (1_lab)
+        run: |
+          cd 1_lab
+          npx playwright install --with-deps
+
+      - name: 🎭 Встановлення Playwright (lab6-e2e)
+        run: |
+          cd lab6-e2e
+          npx playwright install --with-deps
+
+      - name: 🎭 Встановлення Playwright (ui-testing)
+        run: |
+          cd ui-testing
+          npx playwright install --with-deps
+
+      - name: 🧪 Запуск тестів 1_lab
+        run: |
+          cd 1_lab
+          npx playwright test
+
+      - name: 🧪 Запуск тестів lab6-e2e
+        run: |
+          cd lab6-e2e
+          npx playwright test
+
+      - name: 🧪 Запуск тестів ui-testing
+        run: |
+          cd ui-testing
+          npx playwright test
+
+      - name: 📊 Генерація звіту (lab6-e2e)
+        run: |
+          cd lab6-e2e
+          npx playwright show-report
